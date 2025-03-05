@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcastor <dcastor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/05 21:09:48 by dcastor           #+#    #+#             */
-/*   Updated: 2025/03/05 22:33:46 by dcastor          ###   ########.fr       */
+/*   Created: 2025/03/05 22:42:11 by dcastor           #+#    #+#             */
+/*   Updated: 2025/03/05 22:43:32 by dcastor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,15 @@ int	ft_get_index(char c, char *charset)
 
 int	main(int argc, char **argv)
 {
-	char	operators[] = "+-*/%";
-	int		operator_index;
+	const char	operators[] = "+-*/%";
+	int			operator_index;
+	void		(*operations[5])(int a, int b);
 
-	void (*operations[5])(int a, int b) = {&ft_put_add, &ft_put_sub,
-		&ft_put_multiply, &ft_put_divide, &ft_put_modulo};
+	operations[0] = &ft_put_add;
+	operations[1] = &ft_put_sub;
+	operations[2] = &ft_put_multiply;
+	operations[3] = &ft_put_divide;
+	operations[4] = &ft_put_modulo;
 	if (argc != 4 || ft_strlen(argv[2]) != 1)
 	{
 		ft_putchar('0');
